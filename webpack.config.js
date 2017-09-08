@@ -1,6 +1,5 @@
 //import path from 'path'
 const path = require('path')
-
 // distribution directory for bundled/transpiled files
 const DIST_DIR = path.resolve(__dirname + '/dist')
 // source directory of modules entry point
@@ -8,7 +7,7 @@ const SRC_DIR = path.resolve(__dirname + '/src')
 
 const config = {
   //context: __dirname + '/app',
-  entry: SRC_DIR + '/app/index.js', // webpack entry path
+  entry: SRC_DIR + '/app/index.js', // webpack entry file path
   output: {                         // webpack output location
     path: DIST_DIR + '/app',
     filename: 'bundle.js',
@@ -20,7 +19,7 @@ const config = {
       {
         test: /\.js?/,              //files webpack need to transform for this particular loader
         include: SRC_DIR,
-        exclude: /node_modules/,
+        exclude: path.join(__dirname,'node_modules'),
         loader: ['babel-loader']
         // options: {                     //babel-loader uses some presets(contains the logic of transformations)(.babelrc)
         //   presets: ["react", "es2015", "stage-2"]
