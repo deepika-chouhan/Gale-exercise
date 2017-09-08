@@ -3,6 +3,10 @@ import Box from './components/displaybox.js'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+//For enabling HMR
+if (module.hot) {
+  module.hot.accept();
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        React App Start -App Component
+        React App Start -App Components
         <Box />
         <Form />
       </div>

@@ -1,22 +1,39 @@
 var express = require('express')
 var fs = require('fs')
 var path = require('path')
-var app = express()
-var port = 3000
 var multer = require('multer')
 var bodyParser = require('body-parser')
 
-app.use(express.static('server/public'))
-//app.use(express.static('dist'))
+var app = express()
+var port = 3000
 
-// app.use('/', (req, res) => {
-//   console.log("Inside /")
-//   res.send('<h2>ExpressJS is @ work</h2>')
-// })
+var webpack = require('webpack')
+var webpackDevMiddleware = require('webpack-dev-middleware')
+var webpackHotMiddleware = require('webpack-hot-middleware')
+var config = require('../webpack.config.js')
+const compiler = webpack(config)
 
+const SRC_DIR = path.resolve(__dirname, '..', 'src')
 
-app.post('/api/upload', (re, res) => {
+//localhost:3000/index.html
+app.use(express.static(SRC_DIR))
+//app.use(express.static('server/public'))
 
+//comment if running npm run start_prod 
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath,
+  stats: {
+    colors: true
+  }
+}))
+
+//HMR- hot module replacement
+app.use(webpackHotMiddleware(compiler))
+
+app.get('/api/list', (req, res) => {
+})
+
+app.post('/api/upload', (req, res) => {
 })
 
 app.listen(port, (err) => {
