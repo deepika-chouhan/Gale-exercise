@@ -1,8 +1,6 @@
 var express = require('express')
 var fs = require('fs')
 var path = require('path')
-var multer = require('multer')
-var bodyParser = require('body-parser')
 
 var app = express()
 var port = 3000
@@ -19,6 +17,11 @@ const SRC_DIR = path.resolve(__dirname, '..', 'src')
 app.use(express.static(SRC_DIR))
 //app.use(express.static('server/public'))
 
+// Adding 3rd party middleware to build the frontend project
+// and output the build file to a dist location(public path)
+//  on loading the web app, (index.html), along with it loads the
+// script file to the browser i.e the bundled FE project as a whole
+
 //comment if running npm run start_prod 
 app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
@@ -26,6 +29,11 @@ app.use(webpackDevMiddleware(compiler, {
     colors: true
   }
 }))
+
+// Adding 3rd party HMR middleware
+// it sends an updated build file to the listening client
+// on any server sid changes, and the client in the browser
+// updates the bundle.js existing in browser accordingly
 
 //HMR- hot module replacement
 app.use(webpackHotMiddleware(compiler))

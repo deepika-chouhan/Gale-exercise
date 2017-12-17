@@ -16,7 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        React App Start -App Components
+        React App Components
         <Box />
         <Form />
       </div>
