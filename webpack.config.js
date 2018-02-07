@@ -26,6 +26,17 @@ const config = {
         // options: {              //babel-loader uses some presets(contains the logic of transformations)||(.babelrc)
         //   presets: ["react", "es2015", "stage-2"]
         // }
+      },
+      {
+        test: /\.scss$/,          // regex to find files to be passed to loader for compilation
+                                  // [sass loader(sass to css)-> css-loader->style-loader]
+        use: [{
+          loader: "style-loader"
+        }, {
+          loader: "css-loader"
+        }, {
+          loader: "sass-loader"
+        }]
       }
     ]
   },

@@ -1,9 +1,4 @@
-import Team from './components/team'
-import React from 'react'
-import ReactDOM from 'react-dom'
 import { observable } from 'mobx'
-import $ from 'jquery'
-import './main.scss'
 
 var scores = observable({
   teamList1: [{
@@ -64,7 +59,7 @@ var scores = observable({
   }],
 
   teamList2: [{
-    id: 25,
+    id: 20,
     name: 'Steve Smith',
     runs: 32,
     balls: 27,
@@ -110,46 +105,7 @@ var scores = observable({
     "balls": 53,
     "isOut": true,
     "wicketBy": "Hillery"
-  }]
+  }],
 })
 
-console.log(scores)
-//For enabling HMR
-if (module.hot) {
-  module.hot.accept();
-}
-
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { data: scores }
-  }
-  componentDidMount() {
-    console.log('componentDidMount')
-    $.ajax({
-      url: 'http://localhost:3000/api/list',
-      dataType: 'json',
-      cache: true,
-      type:'GET',
-      success: function (results) {
-        console.log('Ajax call')
-        this.setState({ data: results });
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  }
-
-  render() {
-    console.log(this.props.ScoresData)
-    return (
-      <div className="scorecard">
-        <Team class="teamA" score={this.props.ScoresData.teamList1} />
-        <Team class="teamB" score={this.props.ScoresData.teamList2} />
-      </div>
-    )
-  }
-}
-
-ReactDOM.render(<App ScoresData={scores} />, document.getElementById("app"))
+export { scores }

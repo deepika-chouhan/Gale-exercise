@@ -39,6 +39,7 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler))
 
 app.get('/api/list', (req, res) => {
+  console.log('Hi API')
 })
 
 app.post('/api/upload', (req, res) => {
