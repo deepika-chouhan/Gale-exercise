@@ -1,0 +1,23 @@
+[
+      {
+            "id": 0,
+            "name": "MTR",
+            "productName": "Powder-Turmeric",
+            "packingDetail": "500 gm pouch",
+            "price": 200
+      },
+      {
+            "id": 1,
+            "name": "DAKSHIN'S",
+            "productName": "Biryani Pulav-Masala",
+            "packingDetail": "100 gm pouch",
+            "price": 100
+      },
+      {
+            "id": 2,
+            "name": "MTR",
+            "productName": "Tamarind/Imli",
+            "packingDetail": "500 gm pouch",
+            "price": 70
+      }
+]

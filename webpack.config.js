@@ -16,6 +16,9 @@ const config = {
     filename: 'bundle.js',
     publicPath: '/app'             //http://localhost:3000/app' webpack-dev-middleware to serve bundled files from this location
   },
+  // resolve: {
+  //   extensions: ['.json']
+  // },
   module: {                        // define modules used during webpack process for transformations(transpilation, uglify etc.)
     loaders: [
       {
@@ -26,6 +29,10 @@ const config = {
         // options: {              //babel-loader uses some presets(contains the logic of transformations)||(.babelrc)
         //   presets: ["react", "es2015", "stage-2"]
         // }
+      },
+      {
+        test: /\.json$/,
+        loader: ['json-loader']
       },
       {
         test: /\.scss$/,          // regex to find files to be passed to loader for compilation
@@ -44,6 +51,9 @@ const config = {
     new webpack.HotModuleReplacementPlugin(), // plugin for HMR
     new webpack.NoEmitOnErrorsPlugin() // plugin to display errors properly
   ]
+  // node: {
+  //   fs: 'empty'
+  // }
 }
 
 // export the config object

@@ -32,18 +32,18 @@ app.use(webpackDevMiddleware(compiler, {
 
 // Adding 3rd party HMR middleware
 // it sends an updated build file to the listening client
-// on any server sid changes, and the client in the browser
+// on any server side changes, and the client in the browser
 // updates the bundle.js existing in browser accordingly
 
 //HMR- hot module replacement
 app.use(webpackHotMiddleware(compiler))
 
-app.get('/api/list', (req, res) => {
-  console.log('Hi API')
-})
+// app.get('/api/list', (req, res) => {
+//   console.log('Hi API')
+// })
 
-app.post('/api/upload', (req, res) => {
-})
+// app.post('/api/upload', (req, res) => {
+// })
 
 app.listen(port, (err) => {
   if (err) {

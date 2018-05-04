@@ -1,105 +1,116 @@
 body {
-    background-color: beige;
+    background-color: #8EE4AF;
+    color: #05386B;
 }
-
 .start-screen {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border: 2px solid gold;
-    &.hide {
+    display: inline-block;
+    width: 100%;
+    .data-panel {
+        display: inline-block;
+        border: 2px solid black;
+        padding: 10px;
+        .list-item {
+            border: 2px solid black;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            float: left;
+            width: 200px;
+            .brand {
+                font-weight: bold;
+            }
+            .price {
+                font-weight: bold;
+            }
+            .product,
+            .packing {
+                padding-bottom: 5px;
+            }
+            .addToCart,
+            .cartItem {
+                background-color: #05386B;
+                box-shadow: 4px 4px black;
+                color: #EDF5E1;
+                border: 1px solid darkgray;
+                height: 28px;
+            }
+            .addToCart {
+                outline: none;
+                height: 28px;
+                &:hover {
+                    background-color: #EDF5E1;
+                    color: #05386B;
+                    cursor: pointer;
+                }
+            }
+            .cartItem {
+                display: inline-flex;
+                align-items: center;
+                .cartValue,
+                .removeItem {
+                    padding: 5px;
+                    border-right: 1px solid;
+                }
+                .addItem,
+                .removeItem,
+                .cartValue {
+                    padding: 5px;
+                }
+                .addItem,
+                .removeItem {
+                    &:hover {
+                        background-color: #EDF5E1;
+                        color: #05386B;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .cart-panel {
+        border: 2px solid black;
+        padding: 10px;
         display: none;
+        float: right;
+        &.show {
+            display: block;
+        }
+        h1 {
+            padding-left: 10px;
+        }
+        .header {
+            border-bottom: 1px solid;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        .content {
+            width: 100%;
+            text-align: center;
+            padding-left: 10px;
+            td, th {
+                padding-right: 5px;
+            }
+            th:first-child,
+            td:first-child {
+                text-align: left;
+                width: 200px;
+            }
+            .remove {
+                background-color: #05386B;
+                box-shadow: 4px 4px black;
+                outline: none;
+                height: 28px;
+                color: #EDF5E1;
+                border: 1px solid darkgray;
+                &:hover {
+                    background-color: #EDF5E1;
+                    color: #05386B;
+                    cursor: pointer;
+                }
+            }
+        }
+    
     }
-    .start-scr-img {
-        width: 100%;
-        height: 100%;
-    }
-}
 
-.chathome-screen {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0; // margin-left: 450px;
-    margin-right: 450px;
-    border: 2px solid gold;
-    &.hide {
-        display: none;
-    }
-    .home-bg-img {
-        position: absolute;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-    }
-    .content {
-        width: auto;
-        height: auto;
-        margin-right: 30px;
-        margin-left: 30px;
-        margin-top: 100px;
-        .question {
-            // position: relative;
-            width: 100%;
-            height: auto;
-            margin-top: 10px;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            padding-right: 3px; //float: right;
-            text-align: right;
-            color: blue;
-            background-color: white;
-            font-family: 'Lucida Sans';
-            font-size: 12px;
-            border: .4px solid gold;
-            border-radius: 10px;
-        }
-        .answer {
-            // position: relative;
-            width: 100%;
-            height: auto;
-            margin-top: 10px;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            padding-left: 3px; //float: left;
-            text-align: left;
-            color: white;
-            background-color: rgb(85, 85, 250);
-            font-family: 'Lucida Sans';
-            font-size: 12px;
-            border: 1px solid blue;
-            border-radius: 10px;
-        }
-    }
-    .input-div {
-        position: fixed;
-        bottom: 50px;
-        margin-left: 100px;
-        border: 1px solid gold;
-        border-radius: 5px;
-        background-color: gold;
-        input {
-            padding: 3px;
-            border: none;
-            border-radius: 5px;
-            height: 30px;
-            width: 250px;
-            outline: none;
-            font-size: 12px;
-            font-family: 'Lucida Sans';
-            color: grey;
-        }
-        .send-btn {
-            height: 20px;
-            width: 80px;
-            outline: none;
-            background-color: gold;
-            color: white;
-            border: none;
-            font-family: 'Lucida Sans';
-        }
-    }
 }

@@ -30,3 +30,9 @@ On npm run build[dev||prod] -->  webpack is invoked to build the bundle.js then 
 2. On requesting the app URL the bundle.js files will be served from the dist location along with the index.html/homepage.
 3. To add HMR capability webpack-hot-middleware is used, it listens to any server side changes.
 4. It generates and sends an updated build file diff to the listening client and the client in the browser updates the bundle.js existing in browser accordingly.
+
+# Follow steps to start the application
+1. "npm install" to install the dependencies
+2. "npm start" to start the application
+
+Note: If any of the dependencies are missing for eg: sass-loader etc, install them manually 
