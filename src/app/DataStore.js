@@ -13,7 +13,7 @@ export default class DataStore {
   @action getData() {
     var ItemList = JSON.parse(localStorage.getItem('ItemList'))
     var CartView = JSON.parse(localStorage.getItem('CartView'))
-    if (ItemList.length) {
+    if (ItemList !== null) {
 
       this.data = toJS(ItemList)
       this.cartView = toJS(CartView)
